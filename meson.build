@@ -39,7 +39,10 @@ proj_cpp_args = proj_common_args + [
 ### ============================
 
 ### ========== FAKES ==========
-# fake_src = files()
+fake_src = files(
+  './tests/fakes/MyClass_mocks.cpp',
+  './tests/fakes/test_globals.cpp',
+)
 
 fake_inc = include_directories(
   [
@@ -90,7 +93,7 @@ test_exe = executable(
   'tests',
   build_by_default: false,
   dependencies: test_deps,
-  sources: [proj_src, test_src],
+  sources: [proj_src, test_src, fake_src],
   c_args: test_c_args,
   cpp_args: test_cpp_args,
   link_args: test_link_args,

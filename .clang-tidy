@@ -11,6 +11,9 @@ Checks:
   - '-*llvm*header*guard'
   - '-*include*cleaner'
   - '-*const*correctness'
+  - '-*inline*decl'
+  - '-*callee*namespace'
+  - '-*-non-private-member-variables-in-classes'
 WarningsAsErrors: ''
 HeaderFileExtensions:
   - ''
