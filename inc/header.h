@@ -1,6 +1,28 @@
+class ArithOps {
+  public:
+    ArithOps() = default;
+    virtual ~ArithOps() = default;
+    ArithOps(const ArithOps&) = default;
+    ArithOps(ArithOps&&) = default;
+    ArithOps& operator=(const ArithOps&) = default;
+    ArithOps& operator=(ArithOps&&) = default;
+
+    virtual int getSum(int a, int b) const;
+    virtual int getDiff(int a, int b) const;
+};
+
 class MyClass {
   public:
-    MyClass(int a, int b) : _a(a), _b(b) {} // NOLINT
+    MyClass(int a, int b, const ArithOps* ops = new ArithOps)
+        : _a(a), _b(b), _ops(ops) {} // NOLINT
+
+    MyClass(const MyClass&) = delete;
+    MyClass(MyClass&&) = delete;
+    MyClass& operator=(const MyClass&) = delete;
+    MyClass& operator=(MyClass&&) = delete;
+    ~MyClass() {
+        delete this->_ops;
+    }
 
     int doComplexOp() const;
 
@@ -8,7 +30,6 @@ class MyClass {
     int _a;
     int _b;
 
-  int getSum() const;
-  int getDiff() const;
+    const ArithOps* _ops;
 };
 

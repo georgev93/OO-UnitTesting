@@ -75,6 +75,9 @@ test_cpp_args = test_common_args + [
   '-Wno-global-constructors', # CPPUTEST
   '-Wno-weak-vtables', # CPPUTEST
   '-Wno-shorten-64-to-32', # CPPUTEST
+  '-Wno-unsafe-buffer-usage', # fff
+  '-Wno-old-style-cast', # fff
+  '-Wno-cast-function-type-strict', # fff
 ]
 ### ===========================
 

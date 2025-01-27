@@ -11,6 +11,12 @@ Checks:
   - '-*llvm*header*guard'
   - '-*include*cleaner'
   - '-*const*correctness'
+  - '-*inline*func*decl*'
+  - '-*identifier-length'
+  - '-*swappable-param*'
+  - '-fuchsia*'
+  - '-*callee-namespace'
+  - '-*owning-memory'
 WarningsAsErrors: ''
 HeaderFileExtensions:
   - ''

@@ -1,18 +1,18 @@
 #include "header.h"
 
 int MyClass::doComplexOp() const {
-    return (this->getDiff() * this->getSum());
+    return (this->_ops->getDiff(_a, _b) * this->_ops->getSum(_a, _b));
 }
 
-int MyClass::getSum() const {
-  return (_a + _b);
+int ArithOps::getSum(int a, int b) const {
+    return (a + b);
 }
 
-int MyClass::getDiff() const {
-  if(_b > _a) {
-    return _b - _a;
-  }
+int ArithOps::getDiff(int a, int b) const {
+    if (b > a) {
+        return b - a;
+    }
 
-  return _a - _b;
+    return a - b;
 }
 
