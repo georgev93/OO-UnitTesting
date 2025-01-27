@@ -8,6 +8,7 @@ class MyClass {
     int _a;
     int _b;
 
-  int getSum();
+  int getSum() const;
+  int getDiff() const;
 };
 
