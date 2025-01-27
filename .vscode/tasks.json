@@ -1,0 +1,42 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ninja_test",
+            "type": "shell",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "command": "ninja unit_test -C build",
+            "group": {"kind": "test", "isDefault": true}
+        },
+        {
+            "label": "ninja_build_test",
+            "type": "shell",
+            "linux": {
+                "command": "ninja tests -C build"
+            },
+            "windows": {
+                "command": "ninja tests.exe -C build"
+            }
+        },
+        {
+          "label": "build_all",
+          "type": "shell",
+          "command": "ninja -C build",
+          "group": "build"
+        },
+        {
+            "label": "ninja_clean",
+            "type": "shell",
+            "command": "ninja clean -C build",
+            "group": "test"
+        }
+    ]
+}

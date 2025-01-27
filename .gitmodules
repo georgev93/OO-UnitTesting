@@ -1,0 +1,3 @@
+[submodule "tests/fakes/inc/fff"]
+	path = tests/fakes/inc/fff
+	url = https://github.com/meekrosoft/fff.git

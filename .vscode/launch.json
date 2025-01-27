@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "ninja_build_test",
+            "program": "${workspaceRoot}/build/tests",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "windows": {
+                "name": "Run Test (Windows)",
+                "request": "launch",
+                "program": "${workspaceRoot}/build/tests.exe",
+                "type": "cppvsdbg"
+            }
+        },
+        {
+            "name": "Run exe",
+            "type": "lldb",
+            "request": "launch",
+            "preLaunchTask": "build_all",
+            "program": "./build/executable",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false
+        }
+    ]
+}
