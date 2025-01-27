@@ -15,7 +15,7 @@ sanitizers = ['-fsanitize=undefined,integer']
 
 ### ========== SOURCE ==========
 proj_src = files(
-  'src/source.c',
+  'src/source.cpp',
 )
 
 proj_main = files('src/main.cpp')
@@ -68,6 +68,7 @@ test_c_args = test_common_args + ['-std=c90']
 test_cpp_args = test_common_args + [
   '-std=c++11',
   '-Wno-c++98-compat', # CPPUTEST
+  '-Wno-c++98-compat-pedantic', # CPPUTEST
   '-Wno-disabled-macro-expansion', # CPPUTEST
   '-Wno-padded', # CPPUTEST
   '-Wno-exit-time-destructors', # CPPUTEST
