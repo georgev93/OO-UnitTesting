@@ -17,6 +17,7 @@ Checks:
   - '-fuchsia*'
   - '-*callee-namespace'
   - '-*owning-memory'
+  - '-altera*'
 WarningsAsErrors: ''
 HeaderFileExtensions:
   - ''

@@ -34,25 +34,29 @@ TEST_GROUP(Basic_g) {
 // clang-format on
 
 TEST(Basic_g, simple) {
-    MyClass testCase1(10, 20);
-    CHECK_EQUAL(300, testCase1.doComplexOp());
+    auto* testCase1 = MyClassFactory().create(10, 20);
+    CHECK_EQUAL(300, testCase1->doComplexOp());
+    delete testCase1;
 
-    MyClass testCase2(20, 30);
-    CHECK_EQUAL(500, testCase2.doComplexOp());
+    auto* testCase2 = MyClassFactory().create(20, 30);
+    CHECK_EQUAL(500, testCase2->doComplexOp());
+    delete testCase2;
 
-    MyClass testCase3(30, 20);
-    CHECK_EQUAL(500, testCase3.doComplexOp());
+    auto* testCase3 = MyClassFactory().create(30, 20);
+    CHECK_EQUAL(500, testCase3->doComplexOp());
+    delete testCase3;
 }
 
 TEST(Basic_g, mockCalls) {
-    MyClass testCase1(10, 20, new MockArithOps);
-    testCase1.doComplexOp();
+    auto* testCase1 = MyClassFactory().create(10, 20, new MockArithOps);
+    testCase1->doComplexOp();
     CHECK_EQUAL(1, getSum_f_fake.call_count);
     CHECK_EQUAL(1, getDiff_f_fake.call_count);
     CHECK_EQUAL(10, getSum_f_fake.arg0_val);
     CHECK_EQUAL(20, getSum_f_fake.arg1_val);
     CHECK_EQUAL(10, getDiff_f_fake.arg0_val);
     CHECK_EQUAL(20, getDiff_f_fake.arg1_val);
+    delete testCase1;
 }
 
 TEST(Basic_g, arithOps) {

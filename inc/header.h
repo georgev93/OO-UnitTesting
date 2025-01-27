@@ -11,11 +11,20 @@ class ArithOps {
     virtual int getDiff(int a, int b) const;
 };
 
+struct MyClassParams {
+    int a;
+    int b;
+    const ArithOps* ops;
+};
+
+class MyClass;
+class MyClassFactory {
+  public:
+    MyClass* create(int a, int b, const ArithOps* ops = new ArithOps);
+};
+
 class MyClass {
   public:
-    MyClass(int a, int b, const ArithOps* ops = new ArithOps)
-        : _a(a), _b(b), _ops(ops) {} // NOLINT
-
     MyClass(const MyClass&) = delete;
     MyClass(MyClass&&) = delete;
     MyClass& operator=(const MyClass&) = delete;
@@ -30,6 +39,10 @@ class MyClass {
     int _a;
     int _b;
 
+    explicit MyClass(const MyClassParams params)
+        : _a(params.a), _b(params.b), _ops(params.ops) {} // NOLINT
+
     const ArithOps* _ops;
+    friend MyClassFactory;
 };
 
